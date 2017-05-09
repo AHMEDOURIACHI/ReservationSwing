@@ -5,6 +5,7 @@
  */
 package atelierswing.view;
 
+import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -20,12 +21,9 @@ public class JFramePrincipale extends JFrame {
     public JFramePrincipale() {
         this.setSize(400, 300);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        JPanel paneau = new JPanel();
-        JPanel chambre = new JPanel();
+       this.add(new JPanelPrincipal());
         
-        this.add(new JpanelHotel());
-        this.add(new JpanelChambre());
-        
+       
     
         this.setVisible(true);
     }
