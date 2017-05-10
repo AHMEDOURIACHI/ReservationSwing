@@ -22,9 +22,7 @@ public class JFramePrincipale extends JFrame {
         this.setSize(400, 300);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
        this.add(new JPanelPrincipal());
-        
-       
-    
+   
         this.setVisible(true);
     }
 

@@ -6,10 +6,12 @@
 package atelierswing.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -25,7 +27,8 @@ public class Client implements Serializable {
     private String nom;
     private String prenom;
     
-    //private List<Reservation>
+    @OneToMany(mappedBy = "client")
+    private List<Reservation> reservations ;
 
     public Long getId() {
         return id;
@@ -59,5 +62,32 @@ public class Client implements Serializable {
     public String toString() {
         return "atelierswing.entity.Client[ id=" + id + " ]";
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+    
+    
+    
     
 }

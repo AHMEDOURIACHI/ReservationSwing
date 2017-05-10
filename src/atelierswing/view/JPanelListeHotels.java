@@ -26,8 +26,10 @@ public class JPanelListeHotels extends javax.swing.JPanel {
         //Code maison
         HotelServices service= new HotelServices();
         List<Hotel>  listehotels = service.lister();
+        
         TableModelHotel model= new TableModelHotel(listehotels);
         this.jtListeHotels.setModel(model);
+       
         
     }
 

@@ -51,6 +51,7 @@ public class JPanelPrincipal extends javax.swing.JPanel {
         jToolBar2 = new javax.swing.JToolBar();
         jbHotels = new javax.swing.JButton();
         jchambres = new javax.swing.JButton();
+        jBClient = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -78,6 +79,17 @@ public class JPanelPrincipal extends javax.swing.JPanel {
         });
         jToolBar2.add(jchambres);
 
+        jBClient.setText("Client");
+        jBClient.setFocusable(false);
+        jBClient.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBClient.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBClientActionPerformed(evt);
+            }
+        });
+        jToolBar2.add(jBClient);
+
         add(jToolBar2, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -91,8 +103,13 @@ public class JPanelPrincipal extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jchambresActionPerformed
 
+    private void jBClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBClientActionPerformed
+        this.add(new JPanelListeCleint(),BorderLayout.CENTER);
+    }//GEN-LAST:event_jBClientActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBClient;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JButton jbHotels;
     private javax.swing.JButton jchambres;
