@@ -22,14 +22,12 @@ public class JPanelPrincipal extends javax.swing.JPanel {
 
         if (component != null) {
             this.remove(component);
-
-            // Ajout nouveau paneau au centre
-            this.add(nouveaupanneau, BorderLayout.CENTER);
-            // raffrichit l affichage de l objet actuel ( un JPanelprincipal donc et de tous ses composants enfants , petits enfants 
-            this.validate();
-
         }
 
+        // Ajout nouveau paneau au centre
+        this.add(nouveaupanneau, BorderLayout.CENTER);
+        // raffrichit l affichage de l objet actuel ( un JPanelprincipal donc et de tous ses composants enfants , petits enfants 
+        this.validate();
     }
 
     /**
@@ -88,6 +86,8 @@ public class JPanelPrincipal extends javax.swing.JPanel {
 
     private void jchambresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchambresActionPerformed
         // TODO add your handling code here:
+
+        this.RemplaceCompsantCentral(new JPanelListeChambres());
 
     }//GEN-LAST:event_jchambresActionPerformed
 
