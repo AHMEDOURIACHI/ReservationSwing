@@ -93,7 +93,7 @@ public class JPanelPrincipal extends javax.swing.JPanel {
 
     private void jbHotelsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHotelsActionPerformed
 
-        this.add(new JPanelListeHotels(), BorderLayout.CENTER);
+        this.RemplaceCompsantCentral( new JPanelListeHotels() );
     }//GEN-LAST:event_jbHotelsActionPerformed
 
     private void jchambresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchambresActionPerformed
@@ -104,7 +104,8 @@ public class JPanelPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_jchambresActionPerformed
 
     private void jBClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBClientActionPerformed
-        this.add(new JPanelListeCleint(),BorderLayout.CENTER);
+        
+        this.RemplaceCompsantCentral(new JPanelListeCleint());
     }//GEN-LAST:event_jBClientActionPerformed
 
 

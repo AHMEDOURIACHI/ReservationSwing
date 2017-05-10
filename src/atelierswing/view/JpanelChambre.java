@@ -97,6 +97,7 @@ public class JpanelChambre extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+        //ajoute la chambre en db 
         Chambre chambre = new Chambre();
 
         chambre.setNom((this.jtfnom.getText()));
@@ -104,6 +105,11 @@ public class JpanelChambre extends javax.swing.JPanel {
 
         ChambreService  ch = new ChambreService();
         ch.ajouter(chambre);
+        
+        //remplace e compsant ctrle du prnt par la list des chmbres
+        JPanelPrincipal jpp = (JPanelPrincipal) this.getParent();
+        
+        jpp.RemplaceCompsantCentral(new JPanelListeChambres());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jtfprixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfprixActionPerformed
