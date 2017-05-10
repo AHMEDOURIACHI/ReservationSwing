@@ -7,38 +7,35 @@ package atelierswing.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import static java.util.Collections.list;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author formation
  */
 @Entity
-public class Chambre implements Serializable {
+public class Reservation implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Float prix;
-    private String nom;
+    private Long numReser;
+    
+    @ManyToMany(mappedBy = "reservation")
+    private List<Chambre> chambres = new ArrayList<>();
     
     @ManyToOne
-    @JoinColumn(name="hotel_id")
-    private Hotel hotel;
-    @JoinTable(name = "id_reservation")
-    @ManyToMany 
-    private List<Reservation> reservation= new ArrayList<Reservation>();
-    
+    @JoinColumn(name = "idCleint")
+    private Client client;
 
     public Long getId() {
         return id;
@@ -47,16 +44,6 @@ public class Chambre implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public Hotel getHotel() {
-        return hotel;
-    }
-
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
-    }
-    
-    
 
     @Override
     public int hashCode() {
@@ -68,10 +55,10 @@ public class Chambre implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Chambre)) {
+        if (!(object instanceof Reservation)) {
             return false;
         }
-        Chambre other = (Chambre) object;
+        Reservation other = (Reservation) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -80,26 +67,7 @@ public class Chambre implements Serializable {
 
     @Override
     public String toString() {
-        return "atelierswing.entity.Chambre[ id=" + id + " ]";
+        return "atelierswing.entity.Reservation[ id=" + id + " ]";
     }
-
-    public Float getPrix() {
-        return prix;
-    }
-
-    public void setPrix(Float prix) {
-        this.prix = prix;
-    }
-
-    
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-    
     
 }

@@ -54,7 +54,7 @@ public class TableModelHotel extends AbstractTableModel{
          
          
          
-     return new RuntimeException("indice de colone incorrect");
+        return new RuntimeException("indice de colone incorrect");
           
        
     }

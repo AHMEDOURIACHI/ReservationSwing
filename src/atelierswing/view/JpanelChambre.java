@@ -68,15 +68,15 @@ public class JpanelChambre extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtfnom, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                    .addComponent(jtfprix))
+                    .addComponent(jtfprix, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                    .addComponent(jtfnom))
                 .addGap(74, 74, 74))
             .addGroup(layout.createSequentialGroup()
                 .addGap(152, 152, 152)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,27 +95,24 @@ public class JpanelChambre extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtfnomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfnomActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfnomActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        Chambre chambre = new Chambre();
+
+        chambre.setNom((this.jtfnom.getText()));
+        chambre.setPrix(Float.valueOf(this.jtfprix.getText()));
+
+        ChambreService  ch = new ChambreService();
+        ch.ajouter(chambre);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jtfprixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfprixActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfprixActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     
-        
-        Chambre chambre = new Chambre();
-     
-         chambre.setNom((this.jtfnom.getText()));
-         chambre.setPrix(Float.valueOf(this.jtfprix.getText()));
-         
-         ChambreService  ch = new ChambreService();
-         ch.ajouter(chambre);
-        
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jtfnomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfnomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfnomActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

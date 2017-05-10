@@ -5,6 +5,7 @@
  */
 package atelierswing.view;
 
+import atelierswing.entity.Client;
 import atelierswing.entity.Hotel;
 import atelierswing.services.HotelServices;
 
@@ -34,7 +35,15 @@ public class JpanelHotel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        codepostal = new javax.swing.JTextField();
+        Jtnom = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTnumHotel = new javax.swing.JTextField();
+        LOCALITE = new javax.swing.JLabel();
+        jTLocalite = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTRue = new javax.swing.JTextField();
+        jTCodepostale = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         codepostale.setText("jTextField1");
 
@@ -50,31 +59,72 @@ public class JpanelHotel extends javax.swing.JPanel {
 
         jLabel2.setText("NOM");
 
-        codepostal.addActionListener(new java.awt.event.ActionListener() {
+        Jtnom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codepostalActionPerformed(evt);
+                JtnomActionPerformed(evt);
             }
         });
+
+        jLabel3.setText("NUMERO HOTEL");
+
+        jTnumHotel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTnumHotelActionPerformed(evt);
+            }
+        });
+
+        LOCALITE.setText("LOCALITE");
+
+        jTLocalite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTLocaliteActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Rue");
+
+        jTRue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTRueActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("CodePostale");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(jButton1)))
-                .addContainerGap(89, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(72, 72, 72)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(codepostal, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(LOCALITE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTLocalite)
+                            .addComponent(jTnumHotel)
+                            .addComponent(Jtnom, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4))
+                        .addGap(193, 193, 193)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTRue, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                            .addComponent(jTCodepostale))))
                 .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(163, 163, 163))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,33 +134,79 @@ public class JpanelHotel extends javax.swing.JPanel {
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(codepostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(107, 107, 107))
+                    .addComponent(Jtnom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jTnumHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LOCALITE)
+                    .addComponent(jTLocalite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTRue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTCodepostale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
         Hotel h = new Hotel();
-        h.setCodep(Long.valueOf(Long.valueOf(this.codepostal.getText())));
+        
+        
+        h.setNom(this.Jtnom.getText());
+        h.setNumHotel(Long.valueOf(this.jTnumHotel.getText()));
+        h.setLoaclite(this.jTLocalite.getText());
+        h.setRue(this.jTRue.getText());
+        h.setCodep(Long.valueOf(this.jTCodepostale.getText()));
+        
         
         
         HotelServices service = new HotelServices();
         service.ajouter(h);
+        
+        JPanelPrincipal parent = (JPanelPrincipal) this.getParent();
+         parent.RemplaceCompsantCentral(new JPanelListeHotels());
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void codepostalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codepostalActionPerformed
+    private void JtnomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtnomActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_codepostalActionPerformed
+    }//GEN-LAST:event_JtnomActionPerformed
+
+    private void jTnumHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTnumHotelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTnumHotelActionPerformed
+
+    private void jTLocaliteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTLocaliteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTLocaliteActionPerformed
+
+    private void jTRueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTRueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTRueActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField codepostal;
+    private javax.swing.JTextField Jtnom;
+    private javax.swing.JLabel LOCALITE;
     private javax.swing.JTextField codepostale;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField jTCodepostale;
+    private javax.swing.JTextField jTLocalite;
+    private javax.swing.JTextField jTRue;
+    private javax.swing.JTextField jTnumHotel;
     // End of variables declaration//GEN-END:variables
 }

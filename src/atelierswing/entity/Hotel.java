@@ -6,10 +6,13 @@
 package atelierswing.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -24,10 +27,12 @@ public class Hotel implements Serializable {
     private Long id;
     private String nom;
     private long numHotel;
-    private String loaclite ;
-    private String Rue ;
+    private String loaclite;
+    private String Rue;
     private Long codep;
-    
+
+    @OneToMany(mappedBy = "hotel")
+    private List<Chambre> chambres = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -37,6 +42,16 @@ public class Hotel implements Serializable {
         this.id = id;
     }
 
+    public List<Chambre> getChambres() {
+        return chambres;
+    }
+
+    public void setChambres(List<Chambre> chambres) {
+        this.chambres = chambres;
+    }
+
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -101,6 +116,5 @@ public class Hotel implements Serializable {
     public void setCodep(Long codep) {
         this.codep = codep;
     }
-    
-    
+
 }
