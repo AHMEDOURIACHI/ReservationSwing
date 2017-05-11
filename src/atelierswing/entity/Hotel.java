@@ -42,13 +42,7 @@ public class Hotel implements Serializable {
         this.id = id;
     }
 
-    public List<Chambre> getChambres() {
-        return chambres;
-    }
-
-    public void setChambres(List<Chambre> chambres) {
-        this.chambres = chambres;
-    }
+  
 
     
     
@@ -117,4 +111,6 @@ public class Hotel implements Serializable {
         this.codep = codep;
     }
 
+    
+    
 }

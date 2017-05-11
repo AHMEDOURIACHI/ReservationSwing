@@ -17,10 +17,22 @@ public class jpanelClientModification extends javax.swing.JPanel {
     /**
      * Creates new form jpanelClientModification
      */
+    
+    private Client client;
+    
     public jpanelClientModification() {
         initComponents();
     }
 
+    public jpanelClientModification(Client client) {
+        this.client = client;
+        initComponents();
+        
+        this.jTexNom.setText(client.getNom());
+        this.jTexPrenom.setText(client.getPrenom());
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -102,15 +114,20 @@ public class jpanelClientModification extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-        Client cl = new Client();
         
-        cl.setNom(this.jTexNom.getText());
-        cl.setPrenom(this.jTexPrenom.getText());
+        this.client.setId( this.client.getId() );
+        this.client.setNom(this.jTexNom.getText());
+        this.client.setPrenom(this.jTexPrenom.getText());
         
         ClientService service = new ClientService();
-        service.modifier(cl);
+        service.modifier(this.client);
         
         service.ListerClient();
+        
+        JPanelPrincipal parent = (JPanelPrincipal) this.getParent();
+        parent.RemplaceCompsantCentral(new JPanelListeCleint());
+        
+        
         
         
     }//GEN-LAST:event_jButton2ActionPerformed

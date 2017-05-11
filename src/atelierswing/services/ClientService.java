@@ -44,9 +44,30 @@ public class ClientService {
         
         EntityManager em=Persistence.createEntityManagerFactory("PU").createEntityManager();
         em.getTransaction().begin();
-        em.persist(client);
+        em.merge(client);
         em.getTransaction().commit();
         
+    }
+    
+     public Client select (Long id){
+        
+        EntityManager em=Persistence.createEntityManagerFactory("PU").createEntityManager();
+        
+        
+        em.getTransaction().begin();
+        Client c =em.find(Client.class, id);
+        em.getTransaction().commit();
+        
+        return c;
+    }
+     
+     
+    public void supprimer (Long id){
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.remove(em.find(Client.class, id));
+        em.getTransaction().commit();
     }
     
 }

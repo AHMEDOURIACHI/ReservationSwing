@@ -29,7 +29,7 @@ public class Chambre implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Float prix;
+    private Long prix;
     private String nom;
     
     @ManyToOne
@@ -55,6 +55,18 @@ public class Chambre implements Serializable {
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
     }
+
+    public List<Reservation> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(List<Reservation> reservation) {
+        this.reservation = reservation;
+    }
+
+   
+
+   
     
     
 
@@ -83,11 +95,11 @@ public class Chambre implements Serializable {
         return "atelierswing.entity.Chambre[ id=" + id + " ]";
     }
 
-    public Float getPrix() {
+    public Long getPrix() {
         return prix;
     }
 
-    public void setPrix(Float prix) {
+    public void setPrix(Long prix) {
         this.prix = prix;
     }
 

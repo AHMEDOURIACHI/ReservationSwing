@@ -8,6 +8,7 @@ package atelierswing.view;
 import atelierswing.entity.Client;
 import atelierswing.services.ClientService;
 import java.util.List;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -79,6 +80,11 @@ public class JPanelListeCleint extends javax.swing.JPanel {
         jButton3.setFocusable(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton3);
 
         jButton4.setText("Gestion les clients");
@@ -115,14 +121,35 @@ public class JPanelListeCleint extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        
+       
+         
+      
+        // recuperation ligne selectionnee
+        int indiceLignesel = jTable1.getSelectedRow();
+        
+        TableModel model = jTable1.getModel();
+        
+        Long id =(Long) model.getValueAt(indiceLignesel, 0);
+        ClientService service= new ClientService();
+        Client cl = service.select(id); 
         // TODO add your handling code here:
-         JPanelPrincipal parent = (JPanelPrincipal) this.getParent();
-         parent.RemplaceCompsantCentral(new JPanelListeCleint());
-        
-        
-        
+        JPanelPrincipal parent = (JPanelPrincipal) this.getParent();
+        parent.RemplaceCompsantCentral(new jpanelClientModification(cl));    
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+        int indiceLigneselectionnee = jTable1.getSelectedRow();
+        TableModel model =jTable1.getModel();
+        Long id = (Long) model.getValueAt(indiceLigneselectionnee, 0); 
+        ClientService service = new ClientService();
+        service.supprimer(id);
+        JPanelPrincipal  parent =  (JPanelPrincipal) this.getParent();
+        parent.RemplaceCompsantCentral(new JPanelListeCleint());
+         
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

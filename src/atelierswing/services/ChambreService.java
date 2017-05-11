@@ -47,5 +47,16 @@ public class ChambreService {
         em.persist(chambre);
         em.getTransaction().commit();
     }
+    
+      public  Chambre SelectChambre(Long id) {
+
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+
+        em.getTransaction().begin();
+        Chambre ch = em.merge(em.find(Chambre.class, id));
+        em.getTransaction().commit();
+        
+        return ch;
+    }
 
 }

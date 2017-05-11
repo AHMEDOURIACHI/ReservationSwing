@@ -101,7 +101,7 @@ public class JpanelChambre extends javax.swing.JPanel {
         Chambre chambre = new Chambre();
 
         chambre.setNom((this.jtfnom.getText()));
-        chambre.setPrix(Float.valueOf(this.jtfprix.getText()));
+        chambre.setPrix(Long.valueOf(this.jtfprix.getText()));
 
         ChambreService  ch = new ChambreService();
         ch.ajouter(chambre);
