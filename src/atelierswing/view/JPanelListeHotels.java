@@ -8,6 +8,8 @@ package atelierswing.view;
 import atelierswing.entity.Hotel;
 import atelierswing.services.HotelServices;
 import java.util.List;
+import javax.persistence.EntityManagerFactory;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -25,7 +27,7 @@ public class JPanelListeHotels extends javax.swing.JPanel {
         
         //Code maison
         HotelServices service= new HotelServices();
-        List<Hotel>  listehotels = service.lister();
+        List<Hotel>  listehotels = service.listerHotel();
         
         TableModelHotel model= new TableModelHotel(listehotels);
         this.jtListeHotels.setModel(model);
@@ -46,7 +48,6 @@ public class JPanelListeHotels extends javax.swing.JPanel {
         jbAjouter = new javax.swing.JButton();
         jbModifier = new javax.swing.JButton();
         jbSupprimer = new javax.swing.JButton();
-        jbChambres = new javax.swing.JButton();
         jspCentre = new javax.swing.JScrollPane();
         jtListeHotels = new javax.swing.JTable();
 
@@ -69,19 +70,23 @@ public class JPanelListeHotels extends javax.swing.JPanel {
         jbModifier.setFocusable(false);
         jbModifier.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbModifier.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jbModifier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModifierActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jbModifier);
 
         jbSupprimer.setText("Supprimer");
         jbSupprimer.setFocusable(false);
         jbSupprimer.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbSupprimer.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jbSupprimer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSupprimerActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jbSupprimer);
-
-        jbChambres.setText("Gérer les chambres");
-        jbChambres.setFocusable(false);
-        jbChambres.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jbChambres.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jbChambres);
 
         add(jToolBar1, java.awt.BorderLayout.PAGE_START);
 
@@ -108,11 +113,43 @@ public class JPanelListeHotels extends javax.swing.JPanel {
         parent.RemplaceCompsantCentral(new JpanelHotel());
     }//GEN-LAST:event_jbAjouterActionPerformed
 
+    private void jbModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModifierActionPerformed
+        // TODO add your handling code here:
+        
+        
+        int indiceSlelectionnee = jtListeHotels.getSelectedRow();
+        TableModel model = jtListeHotels.getModel();
+        Long id = (Long) model.getValueAt(indiceSlelectionnee, 0);
+        
+        
+        HotelServices service = new HotelServices();
+        Hotel hotel= service.SelectHotel(id);
+        
+   
+        JPanelPrincipal parent = (JPanelPrincipal) this.getParent();
+        parent.RemplaceCompsantCentral(new JpanelHotelModification(hotel));
+       
+    }//GEN-LAST:event_jbModifierActionPerformed
+
+    private void jbSupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSupprimerActionPerformed
+        // TODO add your handling code here:
+        
+        int ligneSelecionee = jtListeHotels.getSelectedRow();
+        TableModel model  = jtListeHotels.getModel();
+        Long id= (Long)  model.getValueAt(ligneSelecionee, 0);
+        
+        HotelServices  service = new HotelServices();
+        service.supprimerhotel(id);
+        
+        JPanelPrincipal  parent = (JPanelPrincipal) this.getParent();
+        parent.RemplaceCompsantCentral(new JPanelListeHotels());
+        
+    }//GEN-LAST:event_jbSupprimerActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton jbAjouter;
-    private javax.swing.JButton jbChambres;
     private javax.swing.JButton jbModifier;
     private javax.swing.JButton jbSupprimer;
     private javax.swing.JScrollPane jspCentre;

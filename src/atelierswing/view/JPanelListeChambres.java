@@ -8,6 +8,7 @@ package atelierswing.view;
 import atelierswing.entity.Chambre;
 import atelierswing.services.ChambreService;
 import java.util.List;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -62,6 +63,11 @@ public class JPanelListeChambres extends javax.swing.JPanel {
         jbModifier.setFocusable(false);
         jbModifier.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbModifier.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jbModifier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModifierActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jbModifier);
 
         jbSupprimer.setText("Supprimer");
@@ -97,6 +103,22 @@ public class JPanelListeChambres extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_jbAjouterActionPerformed
+
+    private void jbModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModifierActionPerformed
+        // TODO add your handling code here:
+        
+        int indexligneselectionee = jtListeChambres.getSelectedRow();
+        TableModel  model= jtListeChambres.getModel();
+        Long id = (long)model.getValueAt(indexligneselectionee, 0);
+        
+        ChambreService service = new ChambreService();
+        Chambre chambre= service.SelectChambre(id);
+        JPanelPrincipal parent = (JPanelPrincipal) this.getParent();
+        parent.RemplaceCompsantCentral(new JpanelChambreModification(chambre));
+        
+        
+        
+    }//GEN-LAST:event_jbModifierActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
