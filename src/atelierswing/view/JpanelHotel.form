@@ -38,10 +38,10 @@
                           <Component id="LOCALITE" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jTnumHotel" alignment="0" pref="30" max="32767" attributes="0"/>
+                          <Component id="Jtnom" alignment="0" max="32767" attributes="0"/>
                           <Component id="jTLocalite" max="32767" attributes="0"/>
-                          <Component id="jTnumHotel" max="32767" attributes="0"/>
-                          <Component id="Jtnom" pref="56" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -51,12 +51,12 @@
                       </Group>
                       <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTRue" pref="56" max="32767" attributes="0"/>
-                          <Component id="jTCodepostale" max="32767" attributes="0"/>
+                          <Component id="jTCodepostale" pref="30" max="32767" attributes="0"/>
+                          <Component id="jTRue" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>

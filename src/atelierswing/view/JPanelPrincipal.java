@@ -50,6 +50,7 @@ public class JPanelPrincipal extends javax.swing.JPanel {
         jbHotels = new javax.swing.JButton();
         jchambres = new javax.swing.JButton();
         jBClient = new javax.swing.JButton();
+        jbReservation = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -88,6 +89,17 @@ public class JPanelPrincipal extends javax.swing.JPanel {
         });
         jToolBar2.add(jBClient);
 
+        jbReservation.setText("Réservation");
+        jbReservation.setFocusable(false);
+        jbReservation.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbReservation.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jbReservation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbReservationActionPerformed(evt);
+            }
+        });
+        jToolBar2.add(jbReservation);
+
         add(jToolBar2, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -108,11 +120,16 @@ public class JPanelPrincipal extends javax.swing.JPanel {
         this.RemplaceCompsantCentral(new JPanelListeCleint());
     }//GEN-LAST:event_jBClientActionPerformed
 
+    private void jbReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbReservationActionPerformed
+        this.RemplaceCompsantCentral(new JPanelListeReservations());// TODO add your handling code here:
+    }//GEN-LAST:event_jbReservationActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBClient;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JButton jbHotels;
+    private javax.swing.JButton jbReservation;
     private javax.swing.JButton jchambres;
     // End of variables declaration//GEN-END:variables
 }

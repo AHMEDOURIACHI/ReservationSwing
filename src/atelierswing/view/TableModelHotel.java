@@ -35,7 +35,7 @@ public class TableModelHotel extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 2;
+        return 6;
         
     }
 
@@ -51,6 +51,18 @@ public class TableModelHotel extends AbstractTableModel{
              
          return hotel.getNom();
          
+         if(columnIndex==2)
+         return hotel.getNumHotel();
+         
+         if(columnIndex==3)
+         return hotel.getLoaclite();
+         
+         if(columnIndex==4)
+         
+         return hotel.getRue();
+         
+         if(columnIndex==5)
+         return hotel.getCodep();
          
          
          

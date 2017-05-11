@@ -57,8 +57,4 @@ public class TableModelChambre extends AbstractTableModel{
         return new RuntimeException("indice de colonne incorrect");
     }
     
-    
-    
-    
-    
 }
