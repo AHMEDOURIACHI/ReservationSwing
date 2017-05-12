@@ -5,6 +5,9 @@
  */
 package atelierswing.view;
 
+import atelierswing.entity.Reservation;
+import atelierswing.services.ChambreService;
+import atelierswing.services.ReservationService;
 import javax.swing.ComboBoxModel;
 
 /**
@@ -35,6 +38,7 @@ public class JPanelReservation extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jcbChambre = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         jcbClient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -43,6 +47,13 @@ public class JPanelReservation extends javax.swing.JPanel {
         jLabel2.setText("Chambre");
 
         jcbChambre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,6 +69,10 @@ public class JPanelReservation extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jcbChambre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(174, 174, 174)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,12 +85,34 @@ public class JPanelReservation extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jcbClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1)))
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(jButton1)
+                .addContainerGap(151, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+//        Reservation res = new Reservation();
+//        
+//        int i = jcbChambre.getSelectedIndex();
+//        
+//        ComboBoxModelChambre cbmchmbre = (ComboBoxModelChambre) jcbChambre.getModel();
+//        long idChambre = cbmchmbre.getChambres().get(i).getId();
+//        ReservationService srvce = new ReservationService();
+//        new ChambreService(). 
+//        
+//        
+//        srvce.ajouterRes(res);
+        
+        
+        
+        JPanelPrincipal jpp = (JPanelPrincipal) this.getParent();
+        jpp.RemplaceCompsantCentral(new JPanelListeReservations());// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JComboBox<String> jcbChambre;

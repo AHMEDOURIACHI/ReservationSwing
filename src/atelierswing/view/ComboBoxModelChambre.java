@@ -22,6 +22,13 @@ public class ComboBoxModelChambre extends DefaultComboBoxModel<String>{
         this.chambres=chmbrsrvce.lister();
         }
 
+    public List<Chambre> getChambres() {
+        return chambres;
+    }
+
+    
+    
+    
     @Override
     public String getElementAt(int index) {
         return Long.toString(this.chambres.get(index).getId());
