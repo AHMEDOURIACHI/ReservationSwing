@@ -104,7 +104,13 @@ public class JPanelReservation extends javax.swing.JPanel {
 //        
 //        srvce.ajouterRes(res);
         
-        
+        /*-Recuperation id d ela chambre et id du client
+          -rechercher chambre et client en bdd via CLientService et ChambreService
+          -creation nouvelle reservation
+          -associer  client à la reservation et la reservation au client
+          -associer chmabre àa la reservation et reciproquement
+          -On ajoute la reservation via le service
+          -changer la zone principale vers la liste des reservations*/
         
         JPanelPrincipal jpp = (JPanelPrincipal) this.getParent();
         jpp.RemplaceCompsantCentral(new JPanelListeReservations());// TODO add your handling code here:
